@@ -60,23 +60,24 @@ startActivity(intent2);
                 startActivity(intent3);
             }
         });
-//        sharbased = (Button) findViewById(R.id.bundledbased);
-//        sharbased.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                String  em = String.valueOf(email.getText());
-//                String mn = String.valueOf(mobno.getText());
-//                String ag=String.valueOf(age.getText());
-//                Intent intent2=new Intent(getApplicationContext(), Showdetails.class);
-//                SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
-//                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-//                myEdit.putString("email",  em);
-//                myEdit.putExtra("mobno",  mn);
-//                intent2.putExtra("age",ag);
-//                String un=getIntent().getStringExtra("username");
-//                intent2.putExtra("username",un);
-//                startActivity(intent2);
-//            }
-//        });
+        sharbased = (Button) findViewById(R.id.sharedbased);
+        sharbased.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String  em = String.valueOf(email.getText());
+                String mn = String.valueOf(mobno.getText());
+                String ag=String.valueOf(age.getText());
+                Intent intent4=new Intent(getApplicationContext(), showdetails2.class);
+                SharedPreferences sh = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                SharedPreferences.Editor myEdit = sh.edit();
+                myEdit.putString("email",  em);
+                myEdit.putString("mobno",  mn);
+                myEdit.putString("age",ag);
+                String un=getIntent().getStringExtra("username");
+                myEdit.putString("username",un);
+                startActivity(intent4);
+                myEdit.apply();
+            }
+        });
     }
 
 }
